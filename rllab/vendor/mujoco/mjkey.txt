@@ -1,0 +1,21 @@
+MuJoCo Pro Lab license activation key, number 6287, type 6.
+
+Issued to UC Berkeley AI Research Lab.
+
+Expires December 9, 2018.
+
+Do not share this file with anyone other than the users covered
+by your license agreement with Roboti LLC. This file activates
+MuJoCo Pro on any computer running any supported OS.
+
+Do not modify this file. Its entire content, including the
+plain text section, is used by the activation manager.
+
+d95001ff248c3ec78f6d264f7bee43311a4756b34236cd834a5b26e8fd78fbb1
+fed0554c08bef4aa4a3d29a676e65eef47d2ab7eb333d9841b94c32d26b67c3b
+9b04fd02d0c719298d54b6a94fa8d72156ba17d36c3bc229f6dd04878418394b
+5a20ebf582e46244bae9359f817914c36e816da3fa4731040285c5d76481b473
+4ff007df3bf8d34b0960a9cb5a2db826ea6fc3a8faff95d6e9bcb1a0e7ff6f30
+78cbcc25512cbab96adc3a3d38718a93dcebdff13b425c495b96550c31bb5586
+0c004bf029bb20b934fa425bca626a285b7c55909a2b603bb68e90986fdb88f4
+87a5f7ed2a6d819ce32f8160141a94bdacfbca1af33e45ff20ec7bb5337241c4

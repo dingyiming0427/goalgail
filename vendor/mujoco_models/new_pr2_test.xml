@@ -1,0 +1,494 @@
+<mujoco model="pr2">
+
+
+    <compiler 	meshdir="meshes/"
+				coordinate="local"
+				angle="radian"/>
+
+	<option timestep="0.005" gravity="0 0 0" collision="all"/>
+	<!--<asset>-->
+		<!--<mesh file="pr2/base_L.stl"/>-->
+		<!--<mesh file="pr2/caster_L.stl"/>-->
+		<!--<mesh file="pr2/torso_lift_L.stl"/>-->
+		<!--<mesh file="pr2/head_pan_L.stl"/>-->
+		<!--<mesh file="pr2/head_tilt_L.stl"/>-->
+		<!--<mesh file="pr2/tilting_hokuyo_L.stl"/>-->
+		<!--<mesh file="pr2/shoulder_pan.stl"/>-->
+		<!--<mesh file="pr2/shoulder_lift.stl"/>-->
+		<!--<mesh file="pr2/upper_arm_roll_L.stl"/>-->
+		<!--<mesh file="pr2/upper_arm.stl"/>-->
+		<!--<mesh file="pr2/elbow_flex.stl"/>-->
+		<!--<mesh file="pr2/forearm_roll_L.stl"/>-->
+		<!--<mesh file="pr2/forearm.stl"/>-->
+		<!--<mesh file="pr2/wrist_flex.stl"/>-->
+		<!--<mesh file="pr2/wrist_roll_L.stl"/>-->
+		<!--<mesh file="pr2/gripper_palm.stl"/>-->
+		<!--<mesh file="pr2/l_finger.stl"/>-->
+		<!--<mesh file="pr2/l_finger_tip.stl"/>-->
+
+        <!--<mesh file="objects/base_plate.stl"/>-->
+        <!--<mesh file="objects/compound_gear.stl"/>-->
+        <!--<mesh file="objects/gear_one_tenth.stl"/>-->
+        <!--<mesh file="objects/fixed_piece.stl"/>-->
+        <!--<mesh file="objects/held_piece.stl"/>-->
+        <!--<mesh file="objects/shaft2.stl"/>-->
+
+
+
+
+		<!--<material name="MatGnd" specular=".3" shininess=".3" reflectance="0.3" rgba=".5 .55 .5 1"/>-->
+	<!--</asset>-->
+    <!--<compiler angle="radian" meshdir="/home/melissachien/pr2_description/meshes/" />-->
+    <!--<size njmax="500" nconmax="100" />-->
+    <asset>
+        <mesh name="base_L" file="pr2/base_L.stl" />
+        <mesh name="caster_L" file="pr2/caster_L.stl" />
+        <mesh name="torso_lift_L" file="pr2/torso_lift_L.stl" />
+        <mesh name="head_pan_L" file="pr2/head_pan_L.stl" />
+        <mesh name="head_tilt_L" file="pr2/head_tilt_L.stl" />
+        <mesh name="tilting_hokuyo_L" file="pr2/tilting_hokuyo_L.stl" />
+        <mesh name="shoulder_pan" file="pr2/shoulder_pan.stl" />
+        <mesh name="shoulder_lift" file="pr2/shoulder_lift.stl" />
+        <mesh name="upper_arm_roll_L" file="pr2/upper_arm_roll_L.stl" />
+        <mesh name="upper_arm" file="pr2/upper_arm.stl" />
+        <mesh name="elbow_flex" file="pr2/elbow_flex.stl" />
+        <mesh name="forearm_roll_L" file="pr2/forearm_roll_L.stl" />
+        <mesh name="forearm" file="pr2/forearm.stl" />
+        <mesh name="wrist_flex" file="pr2/wrist_flex.stl" />
+        <mesh name="wrist_roll_L" file="pr2/wrist_roll_L.stl" />
+        <mesh name="gripper_palm" file="pr2/gripper_palm.stl" />
+        <mesh name="l_finger" file="pr2/l_finger.stl" />
+        <mesh name="l_finger_tip" file="pr2/l_finger_tip.stl" />
+        <material name="MatGnd" specular=".3" shininess=".3" reflectance="0.3" rgba=".5 .55 .5 1"/>
+    </asset>
+
+    <!--doesn't like type = mesh-->
+    <default>
+        <joint limited="false" damping=".01" armature=".005" frictional="false"/>
+        <geom contype="1" conaffinity="0" friction="1 0.1 0.1" />
+		<default class="gripper">
+			<joint damping="0.00" armature=".00"/>
+		</default>
+    </default>
+    <!--<default>-->
+        <!--<geom conaffinity="0" />-->
+    <!--</default>-->
+    <worldbody>
+        <body name="base_footprint" pos="0 0 0">
+            <inertial pos="0 0 0" mass="1" diaginertia="0.01 0.01 0.01" />
+            <geom size="0.0005 0.0005 0.0005" pos="0 0 0.071" type="box" rgba="1 1 1 1" />
+            <body name="base_link" pos="0 0 0.051">
+                <inertial pos="-0.061 0 0.1465" quat="0.973598 0.00176355 -0.228065 -0.00944331" mass="116" diaginertia="6.29388 5.66925 3.04177" />
+                <geom type="mesh" rgba="1 1 1 1" mesh="base_L" />
+                <!--<body name="base_bellow_link" pos="-0.29 0 0.8">-->
+                    <!--<inertial pos="0 0 0" mass="1" diaginertia="0.01 0.01 0.01" />-->
+                    <!--<geom size="0.025 0.185 0.15" type="box" rgba="0.1 0.1 0.1 1" />-->
+                <!--</body>-->
+                <!--<body name="base_laser_link" pos="0.275 0 0.252">-->
+                    <!--<inertial pos="0 0 0" quat="0.707107 0.707107 0 0" mass="0.001" diaginertia="0.0001 0.0001 1e-06" />-->
+                <!--</body>-->
+                <!--<body name="fl_caster_rotation_link" pos="0.2246 0.2246 0.0282">-->
+                    <!--<inertial pos="0 0 0.07" quat="0.589921 -0.182261 -0.205712 0.759247" mass="3.47308" diaginertia="0.0153925 0.0125446 0.0114568" />-->
+                    <!--<joint name="fl_caster_rotation_joint" pos="0 0 0" axis="0 0 1" />-->
+                    <!--<geom type="mesh" mesh="caster_L" />-->
+                    <!--<body name="fl_caster_l_wheel_link" pos="0 0.049 0">-->
+                        <!--<inertial pos="0 0 0" quat="0.589921 -0.182261 -0.205712 0.759247" mass="0.44036" diaginertia="0.0153925 0.0125446 0.0114568" />-->
+                        <!--<joint name="fl_caster_l_wheel_joint" pos="0 0 0" axis="0 1 0" />-->
+                        <!--<geom size="0.074792 0.017" quat="0.707107 0.707107 0 0" type="cylinder" />-->
+                    <!--</body>-->
+                    <!--<body name="fl_caster_r_wheel_link" pos="0 -0.049 0">-->
+                        <!--<inertial pos="0 0 0" quat="0.589921 -0.182261 -0.205712 0.759247" mass="0.44036" diaginertia="0.0153925 0.0125446 0.0114568" />-->
+                        <!--<joint name="fl_caster_r_wheel_joint" pos="0 0 0" axis="0 1 0" />-->
+                        <!--<geom size="0.074792 0.017" quat="0.707107 0.707107 0 0" type="cylinder" />-->
+                    <!--</body>-->
+                <!--</body>-->
+                <!--<body name="fr_caster_rotation_link" pos="0.2246 -0.2246 0.0282">-->
+                    <!--<inertial pos="0 0 0.07" quat="0.589921 -0.182261 -0.205712 0.759247" mass="3.47308" diaginertia="0.0153925 0.0125446 0.0114568" />-->
+                    <!--<joint name="fr_caster_rotation_joint" pos="0 0 0" axis="0 0 1" />-->
+                    <!--<geom type="mesh" mesh="caster_L" />-->
+                    <!--<body name="fr_caster_l_wheel_link" pos="0 0.049 0">-->
+                        <!--<inertial pos="0 0 0" quat="0.589921 -0.182261 -0.205712 0.759247" mass="0.44036" diaginertia="0.0153925 0.0125446 0.0114568" />-->
+                        <!--<joint name="fr_caster_l_wheel_joint" pos="0 0 0" axis="0 1 0" />-->
+                        <!--<geom size="0.074792 0.017" quat="0.707107 0.707107 0 0" type="cylinder" />-->
+                    <!--</body>-->
+                    <!--<body name="fr_caster_r_wheel_link" pos="0 -0.049 0">-->
+                        <!--<inertial pos="0 0 0" quat="0.589921 -0.182261 -0.205712 0.759247" mass="0.44036" diaginertia="0.0153925 0.0125446 0.0114568" />-->
+                        <!--<joint name="fr_caster_r_wheel_joint" pos="0 0 0" axis="0 1 0" />-->
+                        <!--<geom size="0.074792 0.017" quat="0.707107 0.707107 0 0" type="cylinder" />-->
+                    <!--</body>-->
+                <!--</body>-->
+                <!--<body name="bl_caster_rotation_link" pos="-0.2246 0.2246 0.0282">-->
+                    <!--<inertial pos="0 0 0.07" quat="0.589921 -0.182261 -0.205712 0.759247" mass="3.47308" diaginertia="0.0153925 0.0125446 0.0114568" />-->
+                    <!--<joint name="bl_caster_rotation_joint" pos="0 0 0" axis="0 0 1" />-->
+                    <!--<geom type="mesh" mesh="caster_L" />-->
+                    <!--<body name="bl_caster_l_wheel_link" pos="0 0.049 0">-->
+                        <!--<inertial pos="0 0 0" quat="0.589921 -0.182261 -0.205712 0.759247" mass="0.44036" diaginertia="0.0153925 0.0125446 0.0114568" />-->
+                        <!--<joint name="bl_caster_l_wheel_joint" pos="0 0 0" axis="0 1 0" />-->
+                        <!--<geom size="0.074792 0.017" quat="0.707107 0.707107 0 0" type="cylinder" />-->
+                    <!--</body>-->
+                    <!--<body name="bl_caster_r_wheel_link" pos="0 -0.049 0">-->
+                        <!--<inertial pos="0 0 0" quat="0.589921 -0.182261 -0.205712 0.759247" mass="0.44036" diaginertia="0.0153925 0.0125446 0.0114568" />-->
+                        <!--<joint name="bl_caster_r_wheel_joint" pos="0 0 0" axis="0 1 0" />-->
+                        <!--<geom size="0.074792 0.017" quat="0.707107 0.707107 0 0" type="cylinder" />-->
+                    <!--</body>-->
+                <!--</body>-->
+                <!--<body name="br_caster_rotation_link" pos="-0.2246 -0.2246 0.0282">-->
+                    <!--<inertial pos="0 0 0.07" quat="0.589921 -0.182261 -0.205712 0.759247" mass="3.47308" diaginertia="0.0153925 0.0125446 0.0114568" />-->
+                    <!--<joint name="br_caster_rotation_joint" pos="0 0 0" axis="0 0 1" />-->
+                    <!--<geom type="mesh" mesh="caster_L" />-->
+                    <!--<body name="br_caster_l_wheel_link" pos="0 0.049 0">-->
+                        <!--<inertial pos="0 0 0" quat="0.589921 -0.182261 -0.205712 0.759247" mass="0.44036" diaginertia="0.0153925 0.0125446 0.0114568" />-->
+                        <!--<joint name="br_caster_l_wheel_joint" pos="0 0 0" axis="0 1 0" />-->
+                        <!--<geom size="0.074792 0.017" quat="0.707107 0.707107 0 0" type="cylinder" />-->
+                    <!--</body>-->
+                    <!--<body name="br_caster_r_wheel_link" pos="0 -0.049 0">-->
+                        <!--<inertial pos="0 0 0" quat="0.589921 -0.182261 -0.205712 0.759247" mass="0.44036" diaginertia="0.0153925 0.0125446 0.0114568" />-->
+                        <!--<joint name="br_caster_r_wheel_joint" pos="0 0 0" axis="0 1 0" />-->
+                        <!--<geom size="0.074792 0.017" quat="0.707107 0.707107 0 0" type="cylinder" />-->
+                    <!--</body>-->
+                <!--</body>-->
+                <body name="torso_lift_link" pos="-0.05 0 0.739675">
+                    <inertial pos="-0.1 0 -0.0885" quat="0.999335 0.00762625 0.0354529 0.00371175" mass="36.248" diaginertia="2.78307 2.51045 0.514581" />
+                    <!--<joint name="torso_lift_joint" pos="0 0 0" axis="0 0 1" type="slide" limited="true" range="0 0.33" />-->
+                    <geom type="mesh" rgba="0.9 0.9 0.9 1" mesh="torso_lift_L" />
+                    <body name="l_torso_lift_side_plate_link" pos="0.0535 0.209285 0.176625">
+                        <inertial pos="-0.0625 0 0.05" mass="0.1" diaginertia="0.001 0.001 0.001" />
+                    </body>
+                    <body name="r_torso_lift_side_plate_link" pos="0.0535 -0.209285 0.176625">
+                        <inertial pos="-0.0625 0 0.05" mass="0.1" diaginertia="0.001 0.001 0.001" />
+                    </body>
+                    <body name="imu_link" pos="-0.02977 -0.1497 0.164" quat="0 0 1 0">
+                        <inertial pos="0 0 0" quat="0.707107 0.707107 0 0" mass="0.001" diaginertia="0.0001 0.0001 1e-06" />
+                    </body>
+                    <body name="head_pan_link" pos="-0.01707 0 0.38145">
+                        <inertial pos="0.010907 0.031693 0.090507" quat="-0.0432724 0.73785 -0.0944754 0.666918" mass="6.339" diaginertia="0.0583935 0.0461226 0.0321798" />
+                        <!--<joint name="head_pan_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-3.007 3.007" />-->
+                        <geom type="mesh" rgba="0 0 0.8 1" mesh="head_pan_L" />
+                        <body name="head_tilt_link" pos="0.068 0 0">
+                            <inertial pos="0.001716 -0.019556 0.055002" quat="0.0812252 0.702704 0.0664272 0.703702" mass="4.479" diaginertia="0.0679001 0.0541425 0.02421" />
+                            <!--<joint name="head_tilt_joint" pos="0 0 0" axis="0 1 0" limited="true" range="-0.471238 1.39626" />-->
+                            <geom type="mesh" rgba="0 0.8 0 1" mesh="head_tilt_L" />
+                            <body name="head_plate_frame" pos="0.0232 0 0.0645">
+                                <inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                <geom size="0.005 0.005 0.005" type="box" rgba="0 0 0.8 1" />
+                                <body name="sensor_mount_link" pos="0 0 0">
+                                    <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="0.05" diaginertia="0.004 0.004 0.004" />
+                                    <body name="high_def_frame" pos="0.046457 -0.11 0.0546">
+                                        <inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                        <body name="high_def_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5">
+                                            <inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                        </body>
+                                    </body>
+                                    <body name="double_stereo_link" pos="0 0 0">
+                                        <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="0.1" diaginertia="0.004 0.004 0.004" />
+                                        <!--<body name="wide_stereo_link" pos="0.045 0.03 0.0501">-->
+                                            <!--<inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />-->
+                                            <!--<body name="wide_stereo_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5">-->
+                                                <!--<inertial pos="0 0 0" quat="0.5 -0.5 0.5 -0.5" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />-->
+                                            <!--</body>-->
+                                            <!--<body name="wide_stereo_l_stereo_camera_frame" pos="0 0 0">-->
+                                                <!--<inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />-->
+                                                <!--<body name="wide_stereo_l_stereo_camera_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5">-->
+                                                    <!--<inertial pos="0 0 0" quat="0.5 -0.5 0.5 -0.5" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />-->
+                                                <!--</body>-->
+                                                <!--<body name="wide_stereo_r_stereo_camera_frame" pos="0 -0.09 0">-->
+                                                    <!--<inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />-->
+                                                    <!--<body name="wide_stereo_r_stereo_camera_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5">-->
+                                                        <!--<inertial pos="0 0 0" quat="0.5 -0.5 0.5 -0.5" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />-->
+                                                    <!--</body>-->
+                                                <!--</body>-->
+                                            <!--</body>-->
+                                        <!--</body>-->
+                                        <!--<body name="narrow_stereo_link" pos="0.045 0.06 0.0501">-->
+                                            <!--<inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />-->
+                                            <!--<body name="narrow_stereo_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5">-->
+                                                <!--<inertial pos="0 0 0" quat="0.5 -0.5 0.5 -0.5" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />-->
+                                            <!--</body>-->
+                                            <!--<body name="narrow_stereo_l_stereo_camera_frame" pos="0 0 0">-->
+                                                <!--<inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />-->
+                                                <!--<body name="narrow_stereo_l_stereo_camera_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5">-->
+                                                    <!--<inertial pos="0 0 0" quat="0.5 -0.5 0.5 -0.5" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />-->
+                                                <!--</body>-->
+                                                <!--<body name="narrow_stereo_r_stereo_camera_frame" pos="0 -0.09 0">-->
+                                                    <!--<inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />-->
+                                                    <!--<body name="narrow_stereo_r_stereo_camera_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5">-->
+                                                        <!--<inertial pos="0 0 0" quat="0.5 -0.5 0.5 -0.5" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />-->
+                                                    <!--</body>-->
+                                                <!--</body>-->
+                                            <!--</body>-->
+                                        <!--</body>-->
+                                    </body>
+                                </body>
+                                <body name="projector_wg6802418_frame" pos="0 0.11 0.0546">
+                                    <inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                    <body name="projector_wg6802418_child_frame" pos="0 0 0" quat="0.707107 0 -0.707107 0">
+                                        <inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                    </body>
+                                </body>
+                                <body name="head_mount_kinect2_link" pos="-0.137376 0 0.091746">
+                                    <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+                                    <geom size="0.0005" />
+                                    <body name="head_mount_kinect2_ir_link" pos="-0.032267 -0.0475 0.155">
+                                        <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+                                        <geom size="0.0005" />
+                                        <!--<body name="head_mount_kinect2_ir_optical_frame" pos="0 0.01 0" quat="0.5 -0.5 0.5 -0.5">-->
+                                            <!--<inertial pos="0 0.01 0" quat="0.5 -0.5 0.5 -0.5" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />-->
+                                        <!--</body>-->
+                                        <!--<body name="head_mount_kinect2_rgb_link" pos="0 -0.05175 0">-->
+                                            <!--<inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />-->
+                                            <!--<geom size="0.0005" />-->
+                                            <!--<body name="head_mount_kinect2_rgb_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5">-->
+                                                <!--<inertial pos="0 0 0" quat="0.5 -0.5 0.5 -0.5" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />-->
+                                            <!--</body>-->
+                                        <!--</body>-->
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                    <body name="laser_tilt_mount_link" pos="0.09893 0 0.227">
+                        <inertial pos="-0.001136 0.00167 -0.00713" quat="0.991286 0.0500966 -0.0484425 0.111783" mass="0.591" diaginertia="0.00120457 0.00108175 0.000787921" />
+                        <!--<joint name="laser_tilt_mount_joint" pos="0 0 0" axis="0 1 0" limited="true" range="-0.7854 1.48353" />-->
+                        <geom type="mesh" rgba="0.8 0 0 1" mesh="tilting_hokuyo_L" />
+                        <body name="laser_tilt_link" pos="0 0 0.03">
+                            <inertial pos="0 0 0" quat="0.707107 0.707107 0 0" mass="0.001" diaginertia="0.0001 0.0001 1e-06" />
+                        </body>
+                    </body>
+                    <body name="r_shoulder_pan_link" pos="0 -0.188 0">
+                        <inertial pos="-0.001201 0.024513 -0.098231" quat="0.927482 -0.0876561 0.0740595 -0.355821" mass="25.7993" diaginertia="0.934201 0.837701 0.242033" />
+                        <!--<joint name="r_shoulder_pan_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-2.2854 0.714602" />-->
+                        <geom type="mesh" rgba="0 0 0.8 1" mesh="shoulder_pan" />
+                        <body name="r_shoulder_lift_link" pos="0.1 0 0">
+                            <inertial pos="0.02195 -0.02664 -0.03127" quat="0.791779 0.478014 0.238985 0.295762" mass="2.74988" diaginertia="0.0261874 0.0207302 0.0151681" />
+                            <!--<joint name="r_shoulder_lift_joint" pos="0 0 0" axis="0 1 0" limited="true" range="-0.5236 1.3963" />-->
+                            <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="shoulder_lift" />
+                            <body name="r_upper_arm_roll_link" pos="0 0 0">
+                                <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+                                <!--<joint name="r_upper_arm_roll_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-3.9 0.8" />-->
+                                <geom type="mesh" mesh="upper_arm_roll_L" />
+                                <body name="r_upper_arm_link" pos="0 0 0">
+                                    <inertial pos="0.21398 -0.01621 -0.0002" quat="-0.0450196 0.697462 -0.088537 0.709705" mass="6.01769" diaginertia="0.0761385 0.0749307 0.0151327" />
+                                    <geom type="mesh" rgba="0 0.8 0 1" mesh="upper_arm" />
+                                    <body name="r_elbow_flex_link" pos="0.4 0 0">
+                                        <inertial pos="0.01014 0.00032 -0.01211" quat="0.308784 0.646797 0.639077 0.279083" mass="1.90327" diaginertia="0.00441852 0.00396477 0.00308977" />
+                                        <!--<joint name="r_elbow_flex_joint" pos="0 0 0" axis="0 1 0" limited="true" range="-2.3213 0" />-->
+                                        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="elbow_flex" />
+                                        <body name="r_forearm_roll_link" pos="0 0 0">
+                                            <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+                                            <!--<joint name="r_forearm_roll_joint" pos="0 0 0" axis="1 0 0" />-->
+                                            <geom type="mesh" mesh="forearm_roll_L" />
+                                            <body name="r_forearm_link" pos="0 0 0">
+                                                <inertial pos="0.18791 -0.00017 -0.00912" quat="-0.000586594 0.726286 -0.00396869 0.687381" mass="2.57968" diaginertia="0.0166326 0.0150775 0.00360892" />
+                                                <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="forearm" />
+                                                <body name="r_wrist_flex_link" pos="0.321 0 0">
+                                                    <inertial pos="-0.00157 0 -0.00075" quat="0.695976 0.696411 -0.12356 0.123942" mass="0.61402" diaginertia="0.000652771 0.000643391 0.000198244" />
+                                                    <!--<joint name="r_wrist_flex_joint" pos="0 0 0" axis="0 1 0" limited="true" range="-2.18 0" />-->
+                                                    <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="wrist_flex" />
+                                                    <body name="r_wrist_roll_link" pos="0 0 0">
+                                                        <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+                                                        <!--<joint name="r_wrist_roll_joint" pos="0 0 0" axis="1 0 0" />-->
+                                                        <geom type="mesh" mesh="wrist_roll_L" />
+                                                        <body name="r_gripper_palm_link" pos="0 0 0">
+                                                            <inertial pos="0.06623 0.00053 -0.00119" quat="-0.0181842 0.706274 0.0160771 0.707523" mass="0.58007" diaginertia="0.000865637 0.000678178 0.000351471" />
+                                                            <geom type="mesh" rgba="0.8 0 0 1" mesh="gripper_palm" />
+                                                            <body name="r_gripper_led_frame" pos="0.0513 0 0.0244">
+                                                                <inertial pos="0.0513 0 0.0244" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />
+                                                            </body>
+                                                            <body name="r_gripper_motor_accelerometer_link" pos="0 0 0">
+                                                                <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+                                                                <geom size="0.0005 0.0005 0.0005" type="box" />
+                                                            </body>
+                                                            <body name="r_gripper_tool_frame" pos="0.18 0 0">
+                                                                <inertial pos="0.18 0 0" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />
+                                                            </body>
+                                                            <body name="r_gripper_motor_slider_link" pos="0.16828 0 0">
+                                                                <inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                                                <!--<joint name="r_gripper_motor_slider_joint" pos="0 0 0" axis="1 0 0" type="slide" limited="true" range="-0.1 0.1" />-->
+                                                                <body name="r_gripper_motor_screw_link" pos="0 0 0">
+                                                                    <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+                                                                    <!--<joint name="r_gripper_motor_screw_joint" pos="0 0 0" axis="0 1 0" />-->
+                                                                </body>
+                                                            </body>
+                                                            <body name="r_gripper_l_finger_link" pos="0.07691 0.01 0">
+                                                                <inertial pos="0.03598 0.0173 -0.00164" quat="0.57444 0.429111 0.518782 0.465562" mass="0.17126" diaginertia="0.00019774 0.000181336 7.66239e-05" />
+                                                                <!--<joint name="r_gripper_l_finger_joint" pos="0 0 0" axis="0 0 1" limited="true" range="0 0.548" />-->
+                                                                <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="l_finger" />
+                                                                <body name="r_gripper_l_finger_tip_link" pos="0.09137 0.00495 0">
+                                                                    <inertial pos="0.00423 0.00284 0" quat="0.249588 0.661594 -0.249588 0.661594" mass="0.04419" diaginertia="1.54177e-05 1.50049e-05 3.23624e-06" />
+                                                                    <!--<joint name="r_gripper_l_finger_tip_joint" pos="0 0 0" axis="0 0 -1" limited="true" range="0 0.548" />-->
+                                                                    <geom type="mesh" rgba="0 0.8 0 1" mesh="l_finger_tip" />
+                                                                </body>
+                                                            </body>
+                                                            <body name="r_gripper_r_finger_link" pos="0.07691 -0.01 0">
+                                                                <inertial pos="0.03576 -0.01736 -0.00095" quat="0.474684 0.510909 0.446353 0.560727" mass="0.17389" diaginertia="0.000198903 0.00018134 7.66847e-05" />
+                                                                <!--<joint name="r_gripper_r_finger_joint" pos="0 0 0" axis="0 0 -1" limited="true" range="0 0.548" />-->
+                                                                <geom quat="0 1 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="l_finger" />
+                                                                <body name="r_gripper_r_finger_tip_link" pos="0.09137 -0.00495 0">
+                                                                    <inertial pos="0.00423 -0.00284 0" quat="-0.249588 0.661594 0.249588 0.661594" mass="0.04419" diaginertia="1.54177e-05 1.50049e-05 3.23624e-06" />
+                                                                    <!--<joint name="r_gripper_r_finger_tip_joint" pos="0 0 0" axis="0 0 1" limited="true" range="0 0.548" />-->
+                                                                    <geom quat="0 1 0 0" type="mesh" rgba="0 0.8 0 1" mesh="l_finger_tip" />
+                                                                    <!--<body name="r_gripper_l_finger_tip_frame" pos="0 0 0">-->
+                                                                        <!--<inertial pos="0 0 0" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />-->
+                                                                        <!--<joint name="r_gripper_joint" pos="0 0 0" axis="0 1 0" type="slide" limited="true" range="0 0.09" />-->
+                                                                    <!--</body>-->
+                                                                </body>
+                                                            </body>
+                                                        </body>
+                                                    </body>
+                                                </body>
+                                            </body>
+                                            <body name="r_forearm_cam_frame" pos="0.135 0 0.044" quat="0.679288 0.679288 -0.196387 0.196387">
+                                                <inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                                <body name="r_forearm_cam_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5">
+                                                    <inertial pos="0 0 0" quat="0.5 -0.5 0.5 -0.5" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />
+                                                </body>
+                                            </body>
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                    <body name="l_shoulder_pan_link" pos="0 0.188 0">
+                        <inertial pos="-0.001201 0.024513 -0.098231" quat="0.927482 -0.0876561 0.0740595 -0.355821" mass="25.7993" diaginertia="0.934201 0.837701 0.242033" />
+                        <joint name="l_shoulder_pan_joint" pos="0 0 0" axis="0 0 1" limited="true" range="-0.714602 2.2854" />
+                        <geom type="mesh" rgba="0 0 0.8 1" mesh="shoulder_pan" />
+                        <body name="l_shoulder_lift_link" pos="0.1 0 0">
+                            <inertial pos="0.02195 -0.02664 -0.03127" quat="0.791779 0.478014 0.238985 0.295762" mass="2.74988" diaginertia="0.0261874 0.0207302 0.0151681" />
+                            <joint name="l_shoulder_lift_joint" pos="0 0 0" axis="0 1 0" limited="true" range="-0.5236 1.3963" />
+                            <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="shoulder_lift" />
+                            <body name="l_upper_arm_roll_link" pos="0 0 0">
+                                <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+                                <joint name="l_upper_arm_roll_joint" pos="0 0 0" axis="1 0 0" limited="true" range="-0.8 3.9" />
+                                <geom type="mesh" mesh="upper_arm_roll_L" />
+                                <body name="l_upper_arm_link" pos="0 0 0">
+                                    <inertial pos="0.21405 0.01658 -0.00057" quat="-0.0909011 0.708675 -0.0516381 0.697746" mass="6.01769" diaginertia="0.0760697 0.0748821 0.0151071" />
+                                    <geom type="mesh" rgba="0 0.8 0 1" mesh="upper_arm" />
+                                    <body name="l_elbow_flex_link" pos="0.4 0 0">
+                                        <inertial pos="0.01014 0.00032 -0.01211" quat="0.308784 0.646797 0.639077 0.279083" mass="1.90327" diaginertia="0.00441852 0.00396477 0.00308977" />
+                                        <joint name="l_elbow_flex_joint" pos="0 0 0" axis="0 1 0" limited="true" range="-2.3213 0" />
+                                        <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="elbow_flex" />
+                                        <body name="l_forearm_roll_link" pos="0 0 0">
+                                            <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+                                            <joint name="l_forearm_roll_joint" pos="0 0 0" axis="1 0 0" />
+                                            <geom type="mesh" mesh="forearm_roll_L" />
+                                            <body name="l_forearm_link" pos="0 0 0">
+                                                <inertial pos="0.18791 -0.00017 -0.00912" quat="-0.000586594 0.726286 -0.00396869 0.687381" mass="2.57968" diaginertia="0.0166326 0.0150775 0.00360892" />
+                                                <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="forearm" />
+                                                <body name="l_wrist_flex_link" pos="0.321 0 0">
+                                                    <inertial pos="-0.00157 0 -0.00075" quat="0.695976 0.696411 -0.12356 0.123942" mass="0.61402" diaginertia="0.000652771 0.000643391 0.000198244" />
+                                                    <joint name="l_wrist_flex_joint" pos="0 0 0" axis="0 1 0" limited="true" range="-2.18 0" />
+                                                    <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="wrist_flex" />
+                                                    <body name="l_wrist_roll_link" pos="0 0 0">
+                                                        <inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01" />
+                                                        <joint name="l_wrist_roll_joint" pos="0 0 0" axis="1 0 0" />
+                                                        <geom type="mesh" mesh="wrist_roll_L" />
+                                                        <body name="l_gripper_palm_link" pos="0 0 0">
+                                                            <inertial pos="0.06623 0.00053 -0.00119" quat="-0.0181842 0.706274 0.0160771 0.707523" mass="0.58007" diaginertia="0.000865637 0.000678178 0.000351471" />
+                                                            <geom type="mesh" rgba="0.8 0 0 1" mesh="gripper_palm" />
+                                                            <body name="l_gripper_led_frame" pos="0.0513 0 0.0244">
+                                                                <inertial pos="0.0513 0 0.0244" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />
+                                                            </body>
+                                                            <body name="l_gripper_motor_accelerometer_link" pos="0 0 0">
+                                                                <inertial pos="0 0 0" mass="0.001" diaginertia="0.001 0.001 0.001" />
+                                                                <geom size="0.0005 0.0005 0.0005" type="box" />
+                                                            </body>
+                                                            <body name="l_gripper_tool_frame" pos="0.18 0 0">
+                                                                <inertial pos="0.18 0 0" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />
+                                                                <!--to be added -->
+                                                                <body name="gear" pos="0.0 0 0">
+                                                                    <!--not actual disk center, but just for this task-->
+                                                                     <site name="disk_center" pos="0.0 0 0" size="0.04"/>
+                                                                     <site name="ref1" pos="0.05 0 0" size="0.01"/>
+                                                                     <site name="ref2" pos="-0.05 0 0" size="0.01"/>
+                                                                </body>
+                                                            </body>
+                                                            <body name="l_gripper_motor_slider_link" pos="0.16828 0 0">
+                                                                <inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                                                <!--<joint name="l_gripper_motor_slider_joint" pos="0 0 0" axis="1 0 0" type="slide" limited="true" range="-0.1 0.1" />-->
+                                                                <body name="l_gripper_motor_screw_link" pos="0 0 0">
+                                                                    <inertial pos="0 0 0" mass="0.01" diaginertia="0.0001 0.0001 0.0001" />
+                                                                    <!--<joint name="l_gripper_motor_screw_joint" pos="0 0 0" axis="0 1 0" />-->
+                                                                </body>
+                                                            </body>
+                                                            <body name="l_gripper_l_finger_link" pos="0.07691 0.01 0">
+                                                                <inertial pos="0.03598 0.0173 -0.00164" quat="0.57444 0.429111 0.518782 0.465562" mass="0.17126" diaginertia="0.00019774 0.000181336 7.66239e-05" />
+                                                                <!--<joint name="l_gripper_l_finger_joint" pos="0 0 0" axis="0 0 1" limited="true" range="0 0.548" />-->
+                                                                <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="l_finger" />
+                                                                <body name="l_gripper_l_finger_tip_link" pos="0.09137 0.00495 0">
+                                                                    <inertial pos="0.00423 0.00284 0" quat="0.249588 0.661594 -0.249588 0.661594" mass="0.04419" diaginertia="1.54177e-05 1.50049e-05 3.23624e-06" />
+                                                                    <!--<joint name="l_gripper_l_finger_tip_joint" pos="0 0 0" axis="0 0 -1" limited="true" range="0 0.548" />-->
+                                                                    <geom type="mesh" rgba="0 0.8 0 1" mesh="l_finger_tip" />
+                                                                </body>
+                                                            </body>
+                                                            <body name="l_gripper_r_finger_link" pos="0.07691 -0.01 0">
+                                                                <inertial pos="0.03576 -0.01736 -0.00095" quat="0.474684 0.510909 0.446353 0.560727" mass="0.17389" diaginertia="0.000198903 0.00018134 7.66847e-05" />
+                                                                <!--<joint name="l_gripper_r_finger_joint" pos="0 0 0" axis="0 0 -1" limited="true" range="0 0.548" />-->
+                                                                <geom quat="0 1 0 0" type="mesh" rgba="0.7 0.7 0.7 1" mesh="l_finger" />
+                                                                <body name="l_gripper_r_finger_tip_link" pos="0.09137 -0.00495 0">
+                                                                    <inertial pos="0.00423 -0.00284 0" quat="-0.249588 0.661594 0.249588 0.661594" mass="0.04419" diaginertia="1.54177e-05 1.50049e-05 3.23624e-06" />
+                                                                    <!--<joint name="l_gripper_r_finger_tip_joint" pos="0 0 0" axis="0 0 1" limited="true" range="0 0.548" />-->
+                                                                    <geom quat="0 1 0 0" type="mesh" rgba="0 0.8 0 1" mesh="l_finger_tip" />
+                                                                    <!--<body name="l_gripper_l_finger_tip_frame" pos="0 0 0">-->
+                                                                        <!--<inertial pos="0 0 0" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />-->
+                                                                        <!--<joint name="l_gripper_joint" pos="0 0 0" axis="0 1 0" type="slide" limited="true" range="0 0.09" />-->
+                                                                    <!--</body>-->
+                                                                </body>
+                                                            </body>
+                                                        </body>
+                                                    </body>
+                                                </body>
+                                            </body>
+                                            <body name="l_forearm_cam_frame" pos="0.135 0 0.044" quat="0.679288 -0.679288 -0.196387 -0.196387">
+                                                <inertial pos="0 0 0" mass="0.01" diaginertia="0.001 0.001 0.001" />
+                                                <body name="l_forearm_cam_optical_frame" pos="0 0 0" quat="0.5 -0.5 0.5 -0.5">
+                                                    <inertial pos="0 0 0" quat="0.5 -0.5 0.5 -0.5" mass="1e-03" diaginertia="1e-04 1e-04 1e-04" />
+                                                </body>
+                                            </body>
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
+                </body>
+                <body name="torso_lift_motor_screw_link" pos="-0.15 0 0.7">
+                    <inertial pos="0 0 0" mass="1" diaginertia="0.001 0.001 0.001" />
+                    <!--<joint name="torso_lift_motor_screw_joint" pos="0 0 0" axis="0 0 1" />-->
+                </body>
+            </body>
+        </body>
+
+
+        <body name="table" pos="0 0 0">
+            <inertial pos="0 0 0" mass="100.0" diaginertia="1.0 1.0 1.0"/>
+            <geom name="table_geom" type="box" pos="0.6 0 0.42" size="0.5 1.0 0.05" rgba="0 0.3 0 1" contype="1" conaffinity="1" solref="0.001 1" solimp="0.999 0.999 0.001"/>
+        </body>
+
+        <body name="base_obj" pos ="0.4 0.35 0.6">
+            <site name="kill_radius" type="sphere" pos="0 0 0" rgba="1.0 0.0 0.0 0.1" size="0.4" />
+            <site name="goal_position" type="sphere" pos="0 0 0" rgba="1.0 0.0 0.0 0.5" size="0.03" />
+            <!--<inertial pos="0 0 0" mass="0.1" diaginertia="0.01 0.01 0.01"/>-->
+            <!--<geom name="base_obj" pos="0 0 0.0255" type="box" size="0.03 0.03 0.0255" rgba="1 0 0 1" contype="1" conaffinity="1"/>-->
+            <!--<body name="cyl" pos="0 0 0.051">-->
+                <!--&lt;!&ndash;goal position is green and visible&ndash;&gt;-->
+                <!--<site name="goal_position" type="sphere" pos="0 0 0.0" rgba="0.0 1.0 0.0 0.5" size="0.03" />-->
+                <!--<geom name="cyl" pos="0 0 0.0325" type="cylinder" size="0.0125 0.0325" rgba="1 1 0 1" solref="0.001 1" solimp="0.999 0.999 0.001" contype="1" conaffinity="1"/>-->
+            <!--</body>-->
+        </body>
+
+    </worldbody>
+
+
+
+    <actuator>
+    <motor joint="l_shoulder_pan_joint" ctrlrange="-1 1" ctrllimited="true"/>
+    <motor joint="l_shoulder_lift_joint" ctrlrange="-1 1" ctrllimited="true"/>
+    <motor joint="l_upper_arm_roll_joint" ctrlrange="-1 1" ctrllimited="true"/>
+    <motor joint="l_elbow_flex_joint" ctrlrange="-1 1" ctrllimited="true"/>
+    <motor joint="l_forearm_roll_joint" ctrlrange="-1 1" ctrllimited="true"/>
+    <motor joint="l_wrist_flex_joint" ctrlrange="-1 1" ctrllimited="true"/>
+    <motor joint="l_wrist_roll_joint" ctrlrange="-1 1" ctrllimited="true"/>
+    <!--general site="lego_target" gear="0 0 -1 0 0 0" dynprm="0 0 0" gainprm="0 0 0" biastype="affine" biasprm="0.981 0 0"/-->
+    </actuator>
+</mujoco>
