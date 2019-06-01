@@ -32,10 +32,6 @@ from rllab.misc.overrides import overrides
 
 from sandbox.young_clgan.envs.base import StateGenerator, UniformListStateGenerator, \
     UniformStateGenerator, FixedStateGenerator, StateAuxiliaryEnv
-from sandbox.young_clgan.experiments.asym_selfplay.algos.asym_selfplay import AsymSelfplay
-
-from sandbox.young_clgan.experiments.asym_selfplay.algos.asym_selfplay_batch import AsymSelfplayBatch
-from sandbox.young_clgan.experiments.asym_selfplay.envs.alice_env import AliceEnv
 from sandbox.young_clgan.state.evaluator import parallel_map, FunctionWrapper
 from sandbox.young_clgan.state.utils import StateCollection
 from sandbox.young_clgan.logging.visualization import plot_labeled_states, plot_labeled_samples

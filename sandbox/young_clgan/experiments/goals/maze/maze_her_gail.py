@@ -10,7 +10,6 @@ import sys
 from multiprocessing import cpu_count
 from rllab.misc.instrument import run_experiment_lite
 from rllab.misc.instrument import VariantGenerator
-from sandbox.carlos_snn.autoclone import autoclone
 from rllab import config
 
 from sandbox.young_clgan.experiments.goals.maze.maze_her_gail_algo import run_task
@@ -30,8 +29,6 @@ if __name__ == '__main__':
     parser.add_argument('--debug', action='store_true', default=False, help="run code without multiprocessing")
     args = parser.parse_args()
 
-    if args.clone:
-        autoclone.autoclone(__file__, args)
 
 #   setup ec2
     subnets = ['us-west-1b', 'us-west-1c']
@@ -133,7 +130,7 @@ if __name__ == '__main__':
     vg.add('cells_apart', [8])
     vg.add('perturb_to_feasible', [True])
 
-    vg.add('seed', range(500, 1000, 100))
+    vg.add('seed', range(500, 800, 100))
 
     # expert
     vg.add('num_demos', lambda mode: [20] if mode == 'pure_bc' else [20] if mode == 'her_bc' else [0] if mode == 'her' else [20])

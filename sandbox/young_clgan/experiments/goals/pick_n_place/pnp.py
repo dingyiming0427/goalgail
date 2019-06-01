@@ -14,8 +14,6 @@ from rllab.misc.instrument import run_experiment_lite
 from rllab import config
 from rllab.misc.instrument import VariantGenerator
 
-from sandbox.carlos_snn.autoclone import autoclone
-
 from sandbox.young_clgan.experiments.goals.pick_n_place.pnp_algo import run_task
 
 
@@ -40,10 +38,6 @@ if __name__ == '__main__':
         help='set the additional name for experiment prefix'
     )
     args = parser.parse_args()
-
-    if args.clone:
-        autoclone.autoclone(__file__, args)
-
     # setup ec2
     ec2_instance = args.type if args.type else 'c4.xlarge'
 
@@ -72,7 +66,7 @@ if __name__ == '__main__':
 
     vg = VariantGenerator()
 
-    vg.add('seed', [10, 20, 30, 40, 50])
+    vg.add('seed', [10, 20, 30])
 
     # # GeneratorEnv params
     vg.add('terminal_eps', [0.3])

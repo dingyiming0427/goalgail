@@ -20,7 +20,6 @@ from sandbox.young_clgan.state.evaluator import *
 from sandbox.young_clgan.logging.html_report import format_dict, HTMLReport
 from sandbox.young_clgan.logging.visualization import *
 from sandbox.young_clgan.logging.logger import ExperimentLogger
-from sandbox.young_clgan.experiments.goals.reacher2d_basic.utils import plot_policy_performance
 
 from rllab.sampler.utils import rollout
 
