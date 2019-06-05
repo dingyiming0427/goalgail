@@ -15,6 +15,8 @@ Fetch Pick and Place env: `python sandbox/young_clgan/experiments/goals/pick_n_p
 
 The following command will reproduce the learning curves for two environments as in Fig. 3 in the paper.
 
-Four rooms env: `python plotting/gail_plot.py path-to-experiment-data-folder fourroom`
+Four rooms env: `python plotting/gail_plot.py data/s3/fourroom fourroom`
 
-Fetch Pick and Place env: `python plotting/gail_plot.py path-to-experiment-data-folder pnp`
+Fetch Pick and Place env: `python plotting/gail_plot.py data/s3/fetchpnp fetchpnp`
+
+The generated figures can be found in folder `figures`.
