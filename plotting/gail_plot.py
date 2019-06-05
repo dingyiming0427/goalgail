@@ -30,5 +30,5 @@ if __name__=='__main__':
     gail = get_seeds([args.folder], dict(mode='gail'))
     her = get_seeds([args.folder], dict(mode='her'))
 
-    gail_plot(gailher, gail, her, x_scale=75 if args.env == 'fourroom' else 25, xlim=(0, 1500) if args.env=='fourroom' else (0, 5000))
+    gail_plot(gailher, gail, her, x_scale=75 if args.env == 'fourroom' else 25, xlim=(0, 1500) if args.env=='fourroom' else (0, 10000))
     plt.savefig(os.path.join('figures', args.env))
