@@ -102,7 +102,7 @@ if __name__ == '__main__':
     # sampling paramsherdebug
     vg.add('horizon', lambda control_mode: [500] if control_mode == 'linear' else [300])
     vg.add('terminate_env', [True])
-    vg.add('rollout_terminate', [True])
+    vg.add('rollout_terminate', lambda mode: [False] if mode == 'her' else [True])
     vg.add('outer_iters', lambda maze_id: [200] if maze_id == 0 else [1000])
     vg.add('inner_iters', [5])  # again we will have to divide/adjust the
 

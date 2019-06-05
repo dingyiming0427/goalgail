@@ -366,7 +366,7 @@ def run_task(v):
         feasible_states = sample_unif_feas(inner_env, 10)
         goals = np.random.permutation(np.array(feasible_states))[:300]
 
-
+    evaluate_performance(test_env)
     logger.dump_tabular(with_prefix=False)
 
 
