@@ -2,8 +2,37 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7731d17-7efc-433f-a2e8-3424ad3b22fa" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/baselines/her/experiment/config.py" afterPath="$PROJECT_DIR$/baselines/her/experiment/config.py" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0001/progress.csv" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0001/variant.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0002/progress.csv" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0002/variant.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0003/progress.csv" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0003/variant.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0004/progress.csv" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0004/variant.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0005/progress.csv" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0005/variant.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0006/progress.csv" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0006/variant.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0007/progress.csv" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0007/variant.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0008/progress.csv" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0008/variant.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0009/progress.csv" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/data/s3/fourroom/fourroom_2019_06_01_01_54_37_0009/variant.json" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/figures/fourroom.png" afterPath="$PROJECT_DIR$/figures/fourroom.png" />
+      <change beforePath="$PROJECT_DIR$/plotting/gail_plot.py" afterPath="$PROJECT_DIR$/plotting/gail_plot.py" />
+      <change beforePath="$PROJECT_DIR$/rllab/config_personal.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sandbox/envs/goal_env.py" afterPath="$PROJECT_DIR$/sandbox/envs/goal_env.py" />
+      <change beforePath="$PROJECT_DIR$/sandbox/experiments/goals/maze/maze_her_gail.py" afterPath="$PROJECT_DIR$/sandbox/experiments/goals/maze/maze_her_gail.py" />
+      <change beforePath="$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp.py" afterPath="$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp.py" />
+      <change beforePath="$PROJECT_DIR$/sandbox/young_clgan/.idea/misc.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sandbox/young_clgan/.idea/modules.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sandbox/young_clgan/.idea/workspace.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/sandbox/young_clgan/.idea/young_clgan.iml" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -41,8 +70,40 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="270">
+              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="maze_her_gail.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/maze/maze_her_gail.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="298">
+              <caret line="228" column="30" lean-forward="false" selection-start-line="228" selection-start-column="30" selection-end-line="228" selection-end-column="30" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sync_s3.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/scripts/sync_s3.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pnp.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="309">
+              <caret line="160" column="26" lean-forward="false" selection-start-line="160" selection-start-column="26" selection-end-line="160" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -65,7 +126,13 @@
       <find>iteration</find>
       <find>relabel_expert</find>
       <find>get_seeds</find>
+      <find>bare</find>
+      <find>yiming</find>
+      <find>dock</find>
     </findStrings>
+    <dirStrings>
+      <dir>$PROJECT_DIR$</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,6 +146,7 @@
         <option value="$PROJECT_DIR$/sandbox/young_clgan/experiments/goals/maze/maze_her_gail_algo.py" />
         <option value="$PROJECT_DIR$/sandbox/young_clgan/experiments/goals/maze/maze_her_gail.py" />
         <option value="$PROJECT_DIR$/sandbox/young_clgan/experiments/goals/pick_n_place/pnp.py" />
+        <option value="$PROJECT_DIR$/sandbox/experiments/goals/maze/maze_her_gail.py" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -90,9 +158,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" fullScreen="true">
-    <option name="y" value="23" />
     <option name="width" value="1680" />
-    <option name="height" value="959" />
+    <option name="height" value="1050" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -109,6 +176,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -124,7 +192,33 @@
             <path>
               <item name="goalgail" type="b2602c69:ProjectViewProjectNode" />
               <item name="goalgail" type="462c0819:PsiDirectoryNode" />
+              <item name="rllab" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="goalgail" type="b2602c69:ProjectViewProjectNode" />
+              <item name="goalgail" type="462c0819:PsiDirectoryNode" />
               <item name="sandbox" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="goalgail" type="b2602c69:ProjectViewProjectNode" />
+              <item name="goalgail" type="462c0819:PsiDirectoryNode" />
+              <item name="sandbox" type="462c0819:PsiDirectoryNode" />
+              <item name="experiments" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="goalgail" type="b2602c69:ProjectViewProjectNode" />
+              <item name="goalgail" type="462c0819:PsiDirectoryNode" />
+              <item name="sandbox" type="462c0819:PsiDirectoryNode" />
+              <item name="experiments" type="462c0819:PsiDirectoryNode" />
+              <item name="goals" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="goalgail" type="b2602c69:ProjectViewProjectNode" />
+              <item name="goalgail" type="462c0819:PsiDirectoryNode" />
+              <item name="sandbox" type="462c0819:PsiDirectoryNode" />
+              <item name="experiments" type="462c0819:PsiDirectoryNode" />
+              <item name="goals" type="462c0819:PsiDirectoryNode" />
+              <item name="maze" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="goalgail" type="b2602c69:ProjectViewProjectNode" />
@@ -135,7 +229,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -174,7 +267,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -183,6 +275,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15833333" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -194,7 +287,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -209,6 +301,34 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/plotting/gail_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plotting/plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1830">
+          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plotting/gail_plot.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -299,13 +419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/scripts/sync_s3.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="30" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="15" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sandbox/young_clgan/experiments/goals/pick_n_place/pnp_algo.py" />
     <entry file="file://$PROJECT_DIR$/sandbox/young_clgan/experiments/goals/maze/maze_her_gail.py" />
     <entry file="file://$PROJECT_DIR$/sandbox/young_clgan/experiments/goals/pick_n_place/pnp.py" />
@@ -337,10 +450,36 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sandbox/young_clgan/experiments/goals/maze/maze_her_gail_algo.py" />
+    <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="160" column="26" lean-forward="false" selection-start-line="160" selection-start-column="26" selection-end-line="160" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/scripts/sync_s3.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="31" lean-forward="false" selection-start-line="11" selection-start-column="27" selection-end-line="11" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/maze/maze_her_gail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="228" column="30" lean-forward="false" selection-start-line="228" selection-start-column="30" selection-end-line="228" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>

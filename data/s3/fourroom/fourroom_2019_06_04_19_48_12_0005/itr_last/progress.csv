@@ -1,0 +1,2 @@
+stats_g/std,stats_o/std,epoch,d_expert_std,train/mean_Q,train/episode,train/success_rate,stats_g/mean,d_expert_mean,d_agent_std,d_agent_mean,stats_o/mean
+6.934466361999512,4.444031715393066,0,0.174716,-2.406562566757202,13550.0,0.48,-7.5405988693237305,-0.287886,1.31754,-1.87752,-3.94535756111145

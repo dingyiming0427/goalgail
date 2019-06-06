@@ -190,7 +190,7 @@ class GoalExplorationEnv(GoalEnv, ProxyEnv, Serializable):
             done = True
         if self.append_goal_to_observation:
             observation = self.append_goal_observation(observation)
-        if not self.include_goal_obs: # TODO: YIMING MAKE IT MORE GENERAL
+        if not self.include_goal_obs:
             observation = observation[2:]
 
         return (
@@ -270,7 +270,7 @@ class GoalExplorationEnv(GoalEnv, ProxyEnv, Serializable):
         if goal is None:
             goal = self.current_goal
         if self.relative_goal:
-            full_obs = [obs, goal - self.transform_to_goal_space(obs)]  # TODO(YIMING): make this general ([2:])
+            full_obs = [obs, goal - self.transform_to_goal_space(obs)]
         else:
             full_obs = [obs, np.array(goal)]
         if self.append_transformed_obs:

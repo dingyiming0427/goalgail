@@ -102,7 +102,7 @@ def configure_her(params):
 
     def reward_fun(ag_2, g, o, **kwargs):  # vectorized
 
-        if env.relative_goal:  # TODO (yiming): make this more general
+        if env.relative_goal:
             dif = o[:, -2:]
         else:
             # dif = o[:, :2] - o[:, -2:]
