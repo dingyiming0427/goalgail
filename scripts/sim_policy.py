@@ -10,10 +10,10 @@ from rllab.misc.ext import set_seed
 import numpy as np
 
 
-from sandbox.young_clgan.envs.maze.maze_ant.ant_maze_env import AntMazeEnv
+from sandbox.envs.maze.maze_ant.ant_maze_env import AntMazeEnv
 from rllab.envs.normalized_env import normalize
-from sandbox.young_clgan.envs.goal_env import GoalExplorationEnv
-from sandbox.young_clgan.envs.base import FixedStateGenerator, UniformListStateGenerator, UniformStateGenerator
+from sandbox.envs.goal_env import GoalExplorationEnv
+from sandbox.envs.base import FixedStateGenerator, UniformListStateGenerator, UniformStateGenerator
 
 if __name__ == "__main__":
 
@@ -65,10 +65,10 @@ if __name__ == "__main__":
 
         while True:
             if args.init_state:
-                from sandbox.young_clgan.envs.base import FixedStateGenerator
+                from sandbox.envs.base import FixedStateGenerator
                 env.update_start_generator(FixedStateGenerator(args.init_state))
             elif args.collection_file:
-                from sandbox.young_clgan.envs.base import UniformListStateGenerator
+                from sandbox.envs.base import UniformListStateGenerator
                 init_states = all_feasible_starts.sample(1000)
                 env.update_start_generator(UniformListStateGenerator(init_states))
             if args.deterministic:

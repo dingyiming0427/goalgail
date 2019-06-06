@@ -1,6 +1,6 @@
 import numpy as np
-from sandbox.young_clgan.envs.maze.maze_env_utils import find_cell_idx, sample_nearby_states
-from sandbox.young_clgan.envs.maze.maze_evaluate import sample_unif_feas
+from sandbox.envs.maze.maze_env_utils import find_cell_idx, sample_nearby_states
+from sandbox.envs.maze.maze_evaluate import sample_unif_feas
 
 def perturb(states, scale=0.5):
     states += np.random.normal(loc=0.0, scale=scale, size=states.shape)
