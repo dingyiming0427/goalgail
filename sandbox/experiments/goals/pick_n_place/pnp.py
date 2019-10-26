@@ -159,7 +159,7 @@ if __name__ == '__main__':
                 stub_method_call=run_task,
                 variant=vv,
                 mode=mode,
-                docker_image='yimingding/rllab13-shared3',
+                docker_image='yimingding/rllab13-shared3',ƒ
                 # Number of parallel workers for sampling
                 n_parallel=n_parallel,
                 # Only keep the snapshot parameters for the last iteration

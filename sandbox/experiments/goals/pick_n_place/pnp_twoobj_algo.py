@@ -18,7 +18,7 @@ from sandbox.envs.pick_n_place.pick_n_place_gym import PnPEnv
 from sandbox.experiments.goals.pick_n_place.generate_expert_traj_twoobj import collect_demos
 
 from sandbox.state.evaluator import *
-from sandbox.logging.html_report import format_dict, HTMLReport
+# from sandbox.logging.html_report import format_dict, HTMLReport
 from sandbox.logging.visualization import *
 from sandbox.logging.logger import ExperimentLogger
 from rllab.sampler.utils import rollout
@@ -206,9 +206,9 @@ def run_task(v):
     logger.log("Initializing report and plot_policy_reward...")
     log_dir = logger.get_snapshot_dir()
     inner_log_dir = osp.join(log_dir, 'inner_iters')
-    report = HTMLReport(osp.join(log_dir, 'report.html'), images_per_row=3)
-    report.add_header("{}".format(EXPERIMENT_TYPE))
-    report.add_text(format_dict(v))
+    # report = HTMLReport(osp.join(log_dir, 'report.html'), images_per_row=3)
+    # report.add_header("{}".format(EXPERIMENT_TYPE))
+    # report.add_text(format_dict(v))
 
     logger.log("Starting the outer iterations")
 
@@ -355,8 +355,8 @@ def run_task(v):
                 cloudpickle.dump({'env': env, 'policy': policy}, f)
             max_success = success
 
-        report.save()
-        report.new_row()
+        # report.save()
+        # report.new_row()
 
 
 

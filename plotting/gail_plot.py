@@ -23,12 +23,32 @@ def gail_plot(gailher, gail, her, x_scale=1., xlim=(0, 1000), pad_val=None):
 if __name__=='__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('folder', type=str, default=None, nargs='?')
-    parser.add_argument('env', type=str, default='fourroom', help='fourroom, lego_pusher, pnp, stacktwo')
+    parser.add_argument('env', type=str, default='fourroom', help='fourroom, pointmass-block-pusher, pnp, stacktwo')
     args = parser.parse_args()
 
-    gailher = get_seeds([args.folder], dict(mode='gail_her'))
-    gail = get_seeds([args.folder], dict(mode='gail'))
-    her = get_seeds([args.folder], dict(mode='her'))
+    y_key = 'Outer_Success'
+    if args.env == 'pointmass-block-pusher':
+        y_key += '_0.30'
+    elif args.env == 'stacktwo':
+        y_key +='_0.80'
 
-    gail_plot(gailher, gail, her, x_scale=75 if args.env == 'fourroom' else 25, xlim=(0, 3000) if args.env=='fourroom' else (0, 10000))
+
+    gailher = get_seeds([args.folder], dict(mode='gail_her'), y_key=y_key)
+    gail = get_seeds([args.folder], dict(mode='gail'), y_key=y_key)
+    her = get_seeds([args.folder], dict(mode='her'), y_key=y_key)
+
+    if args.env == 'fourroom':
+        x_scale = 75
+        xlim=(0, 3000)
+    elif args.env == 'pnp':
+        x_scale = 25
+        xlim = (0, 10000)
+    elif args.env == 'pointmass-block-pusher':
+        x_scale = 25
+        xlim = (0, 10000)
+    elif args.env == 'stacktwo':
+        x_scale = 37.5
+        xlim = (0, 10000)
+
+    gail_plot(gailher, gail, her, x_scale=x_scale, xlim=xlim)
     plt.savefig(os.path.join('figures', args.env))

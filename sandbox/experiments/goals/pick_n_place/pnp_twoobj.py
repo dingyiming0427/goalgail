@@ -59,7 +59,7 @@ if __name__ == '__main__':
         mode = 'local'
         n_parallel = cpu_count() if not args.debug else 1
 
-    exp_prefix = 'pickandplace-twoobj'
+    exp_prefix = 'stacktwo'
 
     vg = VariantGenerator()
 
