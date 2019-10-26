@@ -160,8 +160,8 @@ if __name__ == '__main__':
     vg.add('zero_action_p', lambda mode: [0.] if mode == 'gail' else [0.])
     vg.add('relabel_for_policy', lambda mode: [True] if mode == 'gail_her' else [False])
     vg.add('two_qs', lambda mode: [False] if mode == 'gail_her' else [False])
-    vg.add('q_annealing', lambda mode: [1.] if mode == 'gail_her' else [1.])
-    vg.add('anneal_discriminator', lambda mode: [False] if mode == 'gail_her' else [False])
+    vg.add('q_annealing', lambda mode: [0.9] if mode == 'gail_her' else [1.])
+    vg.add('anneal_discriminator', lambda mode: [True] if mode == 'gail_her' else [False])
     vg.add('use_s_p', [True])
     vg.add('only_s', [False])
 

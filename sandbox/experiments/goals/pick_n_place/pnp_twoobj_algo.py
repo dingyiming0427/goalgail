@@ -19,7 +19,7 @@ from sandbox.experiments.goals.pick_n_place.generate_expert_traj_twoobj import c
 
 from sandbox.state.evaluator import *
 # from sandbox.logging.html_report import format_dict, HTMLReport
-from sandbox.logging.visualization import *
+# from sandbox.logging.visualization import *
 from sandbox.logging.logger import ExperimentLogger
 from rllab.sampler.utils import rollout
 

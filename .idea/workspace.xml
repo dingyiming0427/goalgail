@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7731d17-7efc-433f-a2e8-3424ad3b22fa" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/plotting/gail_plot.py" afterPath="$PROJECT_DIR$/plotting/gail_plot.py" />
-      <change beforePath="$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp.py" afterPath="$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp.py" />
+      <change beforePath="$PROJECT_DIR$/sandbox/experiments/goals/maze/maze_her_gail.py" afterPath="$PROJECT_DIR$/sandbox/experiments/goals/maze/maze_her_gail.py" />
       <change beforePath="$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp_twoobj.py" afterPath="$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp_twoobj.py" />
       <change beforePath="$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp_twoobj_algo.py" afterPath="$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp_twoobj_algo.py" />
     </list>
@@ -29,28 +27,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="maze_her_gail_lego_algo.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/maze_lego/maze_her_gail_lego_algo.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="295" column="29" lean-forward="false" selection-start-line="295" selection-start-column="26" selection-end-line="295" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#17#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="108" lean-forward="false" selection-start-line="25" selection-start-column="108" selection-end-line="25" selection-end-column="108" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="gail_plot.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plotting/gail_plot.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -61,31 +37,55 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pnp_twoobj_algo.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="pnp_twoobj_algo.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp_twoobj_algo.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-218">
-              <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+            <state relative-caret-position="210">
+              <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plot.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plotting/plot.py">
+      <file leaf-file-name="logger.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sandbox/logging/logger.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="629">
-              <caret line="135" column="51" lean-forward="false" selection-start-line="135" selection-start-column="51" selection-end-line="135" selection-end-column="51" />
+            <state relative-caret-position="45">
+              <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pnp_twoobj.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sandbox/logging/__init__.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#104#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="visualization.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sandbox/logging/visualization.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3829">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#15#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pnp_twoobj.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp_twoobj.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="61" column="26" lean-forward="false" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+            <state relative-caret-position="494">
+              <caret line="187" column="43" lean-forward="false" selection-start-line="187" selection-start-column="43" selection-end-line="187" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -114,8 +114,8 @@
       <file leaf-file-name="maze_her_gail.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/maze/maze_her_gail.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1936">
-              <caret line="79" column="28" lean-forward="false" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="28" />
+            <state relative-caret-position="269">
+              <caret line="160" column="63" lean-forward="true" selection-start-line="160" selection-start-column="63" selection-end-line="160" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -132,10 +132,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>max_reward</find>
-      <find>young_clgan</find>
-      <find>plot_policy_performanc</find>
-      <find>two_obj</find>
       <find>young_clgan.</find>
       <find>carlos</find>
       <find>mode</find>
@@ -158,10 +154,14 @@
       <find>horizon</find>
       <find>html</find>
       <find>outer_iter</find>
-      <find>scipy</find>
       <find>report</find>
       <find>format_dict</find>
       <find>htmlreport</find>
+      <find>logging.visualizt</find>
+      <find>scipy.fft</find>
+      <find>experimentlogger</find>
+      <find>q_annea</find>
+      <find>scipy</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -184,12 +184,12 @@
         <option value="$PROJECT_DIR$/sandbox/envs/pick_n_place/pick_n_place_gym.py" />
         <option value="$PROJECT_DIR$/sandbox/experiments/goals/maze_lego/maze_lego_her_gail.py" />
         <option value="$PROJECT_DIR$/sandbox/state/evaluator.py" />
-        <option value="$PROJECT_DIR$/sandbox/experiments/goals/maze/maze_her_gail.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/plotting/gail_plot.py" />
         <option value="$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp.py" />
-        <option value="$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp_twoobj.py" />
         <option value="$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp_twoobj_algo.py" />
+        <option value="$PROJECT_DIR$/sandbox/experiments/goals/maze/maze_her_gail.py" />
+        <option value="$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp_twoobj.py" />
       </list>
     </option>
   </component>
@@ -274,6 +274,12 @@
               <item name="experiments" type="462c0819:PsiDirectoryNode" />
               <item name="goals" type="462c0819:PsiDirectoryNode" />
               <item name="pick_n_place" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="goalgail" type="b2602c69:ProjectViewProjectNode" />
+              <item name="goalgail" type="462c0819:PsiDirectoryNode" />
+              <item name="sandbox" type="462c0819:PsiDirectoryNode" />
+              <item name="logging" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="goalgail" type="b2602c69:ProjectViewProjectNode" />
@@ -383,30 +389,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plotting/gail_plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plotting/plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1830">
-          <caret line="133" column="0" lean-forward="false" selection-start-line="133" selection-start-column="0" selection-end-line="133" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -678,14 +660,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/maze/maze_her_gail.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1936">
-          <caret line="79" column="28" lean-forward="false" selection-start-line="79" selection-start-column="21" selection-end-line="79" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="479">
@@ -702,18 +676,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp_twoobj.py">
+    <entry file="file://$PROJECT_DIR$/sandbox/logging/visualization.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="61" column="26" lean-forward="false" selection-start-line="61" selection-start-column="26" selection-end-line="61" selection-end-column="26" />
+        <state relative-caret-position="-3829">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sandbox/logging/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#104#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sandbox/logging/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="7" column="6" lean-forward="false" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/maze/maze_her_gail.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="160" column="63" lean-forward="true" selection-start-line="160" selection-start-column="63" selection-end-line="160" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp_twoobj_algo.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-218">
-          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+        <state relative-caret-position="210">
+          <caret line="14" column="23" lean-forward="true" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sandbox/experiments/goals/pick_n_place/pnp_twoobj.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="187" column="43" lean-forward="false" selection-start-line="187" selection-start-column="43" selection-end-line="187" selection-end-column="43" />
           <folding />
         </state>
       </provider>

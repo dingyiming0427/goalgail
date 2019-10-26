@@ -185,7 +185,7 @@ if __name__ == '__main__':
                     # # 'pip install dominate',
                     # 'pip install multiprocessing_on_dill',
                     'pip install --upgrade scikit-image',
-                    'pip install scipy==0.17.0',
+                    'pip install --upgrade scipy',
                     # 'conda install numpy -n rllab3 -y',
                 ],
             )
