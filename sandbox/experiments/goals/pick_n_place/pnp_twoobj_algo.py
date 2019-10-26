@@ -233,11 +233,11 @@ def run_task(v):
         distance_to_goal_hand = np.array(distance_to_goal_hand)
         distance_to_goal_block = np.array(distance_to_goal_block)
 
-        logger.record_tabular("Iteration", outer_iter)
+        logger.record_tabular("Outer_iter", outer_iter)
         # whole goal
         for thr in thresholds:
             success = distance_to_goal < thr
-            logger.record_tabular("Success_%3.2f" % thr, np.mean(success))
+            logger.record_tabular("Outer_Success_%3.2f" % thr, np.mean(success))
         logger.record_tabular("MinDisToGoal", np.mean(distance_to_goal))
 
         if v['full_space_as_goal']:

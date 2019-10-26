@@ -23,7 +23,7 @@ def gail_plot(gailher, gail, her, x_scale=1., xlim=(0, 1000), pad_val=None):
 if __name__=='__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('folder', type=str, default=None, nargs='?')
-    parser.add_argument('env', type=str, default='fourroom')
+    parser.add_argument('env', type=str, default='fourroom', help='fourroom, lego_pusher, pnp, stacktwo')
     args = parser.parse_args()
 
     gailher = get_seeds([args.folder], dict(mode='gail_her'))
