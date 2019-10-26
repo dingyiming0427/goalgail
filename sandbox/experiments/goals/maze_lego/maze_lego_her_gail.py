@@ -12,7 +12,7 @@ from rllab.misc.instrument import run_experiment_lite
 from rllab.misc.instrument import VariantGenerator
 from rllab import config
 
-from sandbox.experiments.goals.maze.maze_her_gail_algo import run_task
+from sandbox.experiments.goals.maze_lego.maze_her_gail_lego_algo import run_task
 
 if __name__ == '__main__':
 
@@ -29,6 +29,8 @@ if __name__ == '__main__':
     parser.add_argument('--debug', action='store_true', default=False, help="run code without multiprocessing")
     args = parser.parse_args()
 
+    if args.clone:
+        autoclone.autoclone(__file__, args)
 
 #   setup ec2
     subnets = ['us-west-1b', 'us-west-1c']
@@ -57,53 +59,34 @@ if __name__ == '__main__':
         # n_parallel = -1
         # n_parallel = multiprocessing.cpu_count()
 
-    exp_prefix = 'fourroom'
+    exp_prefix = 'pointmass-block-pusher'
 
     vg = VariantGenerator()
-    vg.add('maze_id', [16])  # default is 0
-    vg.add('maze_scaling', lambda maze_id: [1] if maze_id == 16 or maze_id == 18 else [0.3] if maze_id == 17 else [2])
-
-    vg.add('ultimate_goal', lambda maze_id: [(0, 4)] if maze_id == 0 else [(2, 4), (0, 0)] if maze_id == 12 else [(4, 4)]) #originally 4, 4
-    vg.add('goal_size', [2])  # this is the ultimate goal we care about: getting the pendulum upright
-    vg.add('terminal_eps', [1])
+    vg.add('full_space_as_goal', [True])
+    vg.add('goal_size', lambda full_space_as_goal: [2] if not full_space_as_goal else [4])  # this is the ultimate goal we care about: getting the pendulum upright
+    vg.add('terminal_eps', [0.3])
     vg.add('only_feasible', [False])
-    vg.add('goal_range',
-           lambda maze_id: [3] if maze_id == 0 else [7] if maze_id == 14 or maze_id == 15 else [11.5] \
-               if maze_id == 16 or maze_id== 18 else [11.25] if maze_id == 17 else [5])  # this will be used also as bound of the state_space
-    # vg.add('goal_range',
-    #        lambda maze_id: [4] if maze_id == 0 else [7])  # this will be used also as bound of the state_space
-    vg.add('goal_center', lambda maze_id: [(2, 2)] if maze_id == 0 else [(0, -6)] if maze_id == 15 else [(-8, -8)]  \
-            if maze_id == 16 or maze_id == 18 else [(-10.2, -10.2)] if maze_id == 17 else [(0, 0)])
-    # brownian params
-    vg.add('seed_with', ['only_goods'])  # good from brown, onPolicy, previousBrown (ie no good)
-    vg.add('brownian_variance', [1])
-    vg.add('brownian_horizon', [50])
-    # goal-algo params
-    vg.add('min_reward', [0.1])
-    vg.add('max_reward', [0.9])
+    vg.add('goal_range', [1.])  # this will be used also as bound of the state_space
+    vg.add('goal_center', lambda goal_size: [(0,) * goal_size])
+
+
     vg.add('distance_metric', ['L2'])
     vg.add('extend_dist_rew', [0.])  # put a positive number for a negative reward!
     vg.add('persistence', [1])
-    vg.add('n_traj', [1])  # only for labeling and plotting (for now, later it will have to be equal to persistence!)
-    vg.add('sampling_res', lambda maze_id: [0] if maze_id == 0 else [0])
-    vg.add('with_replacement', [False])
-    vg.add('use_trpo_paths', [False])
+    vg.add('n_traj', [1])  # only for labeling and plotting (for now, later it will have to be equal to persistence!)    vg.add('use_trpo_paths', [False])
 
     vg.add('unif_goals', [True])  # put False for fixing the goal below!
-    vg.add('final_goal', lambda maze_id: [(0, 4)] if maze_id == 0 else [(2, 4), (0, 0)] if maze_id == 12 else [(4, 4)])
     vg.add('unif_starts', [False])
-    vg.add('no_resets', lambda unif_starts: [False] if unif_starts else [False])
+    vg.add('no_resets', [False])
 
     # replay buffer
-    vg.add('replay_buffer', [True])
     vg.add('coll_eps', [0.5])
-    vg.add('num_new_goals', [200])
-    vg.add('num_old_goals', [100])
-    # sampling paramsherdebug
-    vg.add('horizon', lambda control_mode: [500] if control_mode == 'linear' else [300])
+
+    # sampling params
+    vg.add('horizon', [100])
     vg.add('terminate_env', [True])
     vg.add('rollout_terminate', [True])
-    vg.add('outer_iters', lambda maze_id: [200] if maze_id == 0 else [1000])
+    vg.add('outer_iters', [1000])
     vg.add('inner_iters', [5])  # again we will have to divide/adjust the
 
     vg.add("lr", [1E-4])
@@ -121,7 +104,7 @@ if __name__ == '__main__':
     vg.add("batch_size", lambda mode: [0] if mode == 'pure_bc' else [256])
     vg.add("n_test_rollouts", [1])
     vg.add("action_noise", [0.15])
-    vg.add("to_goal", [(0, 2)])
+    vg.add("to_goal", lambda full_space_as_goal: [(2, 4)] if not full_space_as_goal else [(0, 4)])
 
     vg.add('nearby_action_penalty', [False])
     vg.add('nearby_penalty_weight', lambda nearby_action_penalty: [0.001] if nearby_action_penalty else [0])
@@ -129,14 +112,14 @@ if __name__ == '__main__':
     vg.add('perturb_scale', [0.2])
     vg.add('cells_apart', [8])
     vg.add('perturb_to_feasible', [True])
+    vg.add('her_use_eps', [False])
+    vg.add('smart_expert_relabeling', [False])
 
-    vg.add('seed', range(500, 800, 100))
+    vg.add('seed', range(700, 1000, 100))
 
     # expert
-    vg.add('num_demos', lambda mode: [20] if mode == 'pure_bc' else [20] if mode == 'her_bc' else [0] if mode == 'her' else [20])
-    vg.add('expert_policy', lambda control_mode: ['expert/maze16/params_best.pkl'] if control_mode == 'linear' else ['planner'])#'expert/maze16/params_quasi.pkl'])
+    vg.add('num_demos', lambda mode: [20] if mode != 'her' else [0])
     vg.add('relabel_expert', lambda num_demos: [True] if num_demos > 0 else [False])
-    vg.add('sample_g_first', lambda mode: [False] if 'gail' in mode else [False])
     vg.add('noisy_expert', [False])
     vg.add('expert_eps', [0.])
     vg.add('expert_noise', [0.])
@@ -152,12 +135,9 @@ if __name__ == '__main__':
     # gail or gail_her
     vg.add('gail_reward', ['negative'])
     vg.add('on_policy_dis', lambda mode: [False] if 'gail' in mode else [False])
-    vg.add('query_expert', lambda mode: [False] if 'gail' in mode else [False])
-    vg.add('query_agent', lambda mode: [False] if 'gail' in mode else [False])
     vg.add('train_dis_per_rollout', lambda mode: [True] if 'gail' in mode else [True])
     vg.add('goal_weight', lambda mode: [0] if mode == 'pure_bc' or mode == 'gail' else [0.] if mode == 'gail_her' else [1.])
     vg.add('gail_weight', lambda mode: [0.1] if 'gail' in mode else [0.]) # the weight before gail reward
-    vg.add('zero_action_p', lambda mode: [0.] if mode == 'gail' else [0.])
     vg.add('relabel_for_policy', lambda mode: [True] if mode == 'gail_her' else [False])
     vg.add('two_qs', lambda mode: [False] if mode == 'gail_her' else [False])
     vg.add('q_annealing', lambda mode: [1.] if mode == 'gail_her' else [1.])
@@ -165,10 +145,9 @@ if __name__ == '__main__':
     vg.add('use_s_p', [True])
     vg.add('only_s', [False])
 
-    vg.add('mode', ['gail', 'gail_her', 'her']) # pure_bc, her_bc, gail, gail_her, her
+    vg.add('mode', ['her', 'gail_her', 'gail']) # pure_bc, her_bc, gail, gail_her, her
     vg.add('num_rollouts', [1])
     vg.add('agent_state_as_goal', lambda mode: [False] if mode != 'gail' else [False])
-    vg.add('control_mode', ['pos'])
 
     vg.add('noise_dis_expert', [0.15])
     vg.add('noise_dis_agent', lambda noise_dis_expert: [noise_dis_expert])
@@ -176,7 +155,6 @@ if __name__ == '__main__':
     vg.add('clip_dis', [0.])
     vg.add('terminate_bootstrapping', [True])
 
-    vg.add('policy_save_interval', [5])
     vg.add('clip_return', [1.])
 
     # Launching
@@ -213,6 +191,7 @@ if __name__ == '__main__':
                 stub_method_call=run_task,
                 variant=vv,
                 mode=mode,
+                docker_image='yimingding/rllab13-shared3',
                 # Number of parallel workers for sampling
                 n_parallel=n_parallel,
                 # Only keep the snapshot parameters for the last iteration

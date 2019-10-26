@@ -359,3 +359,8 @@ def evaluate_path(path, full_path=False, key='rewards', aggregator=np.sum):
         return path
 
 
+def goal_reached_by_eps(paths, terminal_eps):
+    """
+    requires the paths to have ['env_infos']['distance']
+    """
+    return [np.min(path['env_infos']['distance']) < terminal_eps for path in paths]
