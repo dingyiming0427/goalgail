@@ -23,7 +23,7 @@ The following command will reproduce the learning curves for two environments as
 
 Four rooms env: `python plotting/gail_plot.py data/s3/fourroom fourroom`
 
-Point mass lego pusher env: `python plotting.gail_plot data/s3/pointmass-block-pusher pointmass-block-pusher`
+Point mass lego pusher env: `python plotting/gail_plot.py data/s3/pointmass-block-pusher pointmass-block-pusher`
 
 Fetch Pick and Place env: `python plotting/gail_plot.py data/s3/fetchpnp fetchpnp`
 

@@ -11,23 +11,87 @@ import itertools
 
 from rllab.viskit.core import Selector
 
-def plot_with_std(x, ys, x_shift = 0, x_scale = 1, color='b', ax=plt, label='', pad_value = None):
+
+def smooth_data(x,window_len=11,window='hanning'):
+    """smooth the data using a window with requested size.
+    
+    This method is based on the convolution of a scaled window with the signal.
+    The signal is prepared by introducing reflected copies of the signal 
+    (with the window size) in both ends so that transient parts are minimized
+    in the begining and end part of the output signal.
+    
+    input:
+        x: the input signal 
+        window_len: the dimension of the smoothing window; should be an odd integer
+        window: the type of window from 'flat', 'hanning', 'hamming', 'bartlett', 'blackman'
+            flat window will produce a moving average smoothing.
+
+    output:
+        the smoothed signal
+        
+    example:
+
+    t=linspace(-2,2,0.1)
+    x=sin(t)+randn(len(t))*0.1
+    y=smooth(x)
+    
+    see also: 
+    
+    numpy.hanning, numpy.hamming, numpy.bartlett, numpy.blackman, numpy.convolve
+    scipy.signal.lfilter
+ 
+    TODO: the window parameter could be the window itself if an array instead of a string
+    NOTE: length(output) != length(input), to correct this: return y[(window_len/2-1):-(window_len/2)] instead of just y.
+    """
+
+    if x.ndim != 1:
+        raise ValueError("smooth only accepts 1 dimension arrays.")
+
+    if x.size < window_len:
+        raise ValueError("Input vector needs to be bigger than window size.")
+
+
+    if window_len<3:
+        return x
+
+
+    if not window in ['flat', 'hanning', 'hamming', 'bartlett', 'blackman']:
+        raise ValueError ("Window is on of 'flat', 'hanning', 'hamming', 'bartlett', 'blackman'")
+
+
+    s=np.r_[x[window_len-1:0:-1],x,x[-2:-window_len-1:-1]]
+    #print(len(s))
+    if window == 'flat': #moving average
+        w=np.ones(window_len,'d')
+    else:
+        w=eval('np.'+window+'(window_len)')
+
+    y=np.convolve(w/w.sum(),s,mode='valid')
+    return y[(window_len//2-1):-(window_len//2+1)]
+
+
+def plot_with_std(x, ys, x_shift = 0, x_scale = 1, color='b', linestyle='-', ax=plt, label='', pad_value = None, smooth=False, 
+    smooth_window=11, cut=None):
     """
     ys: data for different seeds
     x: x axis
     x * x_scale + x_shift will be plotted
     """
     length = min([len(y) for y in ys] + [len(x)])
+    if cut is not None:
+        length = min(length, cut)
     print("data of length %d" % length)
     x = x[:length]
     ys = [y[:length] for y in ys]
     x = x * x_scale + x_shift
+    if smooth:
+        ys = [smooth_data(y, window_len=smooth_window) for y in ys]
     if pad_value is not None:
-        x = np.concatenate([[pad_value] , x])
-        ys = [np.concatenate([[pad_value], y]) for y in ys]
+        x = np.concatenate([[pad_value] , x])[:length]
+        ys = [np.concatenate([[pad_value], y])[:length] for y in ys]
     avg = np.mean(np.array(ys), axis=0)
     stdd = np.std(np.array(ys), axis=0)
-    ax.plot(x, avg, color=color, label=label)
+    ax.plot(x, avg, color=color, linestyle=linestyle, label=label)
     plt.fill_between(x, avg - stdd, avg + stdd, facecolor=color, alpha=0.3)
 
 
